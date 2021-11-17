@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>            
+    <script  src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+      body{
+        background-color: black;
+        color: white;
+        text-align: center;
+        margin-top: 35vh;
+      }
+      #display{
+        background-color: green;
+        width: 25vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 37vw;
+        color: yellow;
+      }
+      #botoes{
+        background-color: blue;
+        width: 25vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 37vw;
+      }
+      .botoes{
+        background-color: red;
+      }
+      #zero{
+        width: 51px;
+      }
+    </style>
+</head>
+<body>
+    <div id='calculadora'>
+        <div id='display'>
+
+        </div>
+
+        <div id='botoes'>
+            <div id='botoes-num'>
+
+            </div>
+
+            <div id='botoes-sim'>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/babel'> 
+  var valores = [0]
+  var segundo_valor = ''
+  
+    class BotoesNum extends React.Component { 
+  constructor(props) {
+    super(props);
+  }
+  b9(){
+    if(valores[0] == 0){
+        valores = []
+    }
+    if(segundo_valor == valores){
+      valores = []
+    }
+    valores.push(9)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b8(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(8)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b7(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(7)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b6(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(6)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b5(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(5)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b4(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(4)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b3(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(3)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b2(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(2)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b1(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(1)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  b0(){
+    if(segundo_valor == valores){
+      valores = []
+    }
+    if(valores[0] == 0){
+        valores = []
+    }
+    valores.push(0)
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  bponto(){
+      let ulsin = true
+      for(let c = 0; c < valores.length; c++){
+          if(valores[c] == '+' || valores[c] == '-' || valores[c] == '/' || valores[c] == '*'){
+              ulsin = c
+          }
+      }
+      if(ulsin === true){
+            for(let c = 0; c < valores.length; c++){
+              if(valores[c] == '.'){
+                ulsin = false
+              }
+          }
+      } else {
+            for(let c = ulsin + 1; c < valores.length; c++){
+              if(valores[c] == '.'){
+                ulsin = false
+              }
+          }
+      }
+      if(ulsin){
+        valores.push('.')
+      }
+    
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+
+  render(){ 
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "9"){
+      document.getElementById("nine").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "8"){
+      document.getElementById("eight").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "7"){
+      document.getElementById("seven").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "6"){
+      document.getElementById("six").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "5"){
+      document.getElementById("five").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "4"){
+      document.getElementById("four").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "3"){
+      document.getElementById("three").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "2"){
+      document.getElementById("two").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "1"){
+      document.getElementById("one").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "0"){
+      document.getElementById("zero").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "."){
+      document.getElementById("decimal").click();
+    }
+})
+
+    return(
+        <>
+  <button id='nine' class='botoes' onClick={this.b9}>9</button>
+  <button id='eight' class='botoes' onClick={this.b8}>8</button> 
+  <button id='seven' class='botoes' onClick={this.b7}>7</button> <br/>
+  <button id='six' class='botoes' onClick={this.b6}>6</button> 
+  <button id='five' class='botoes' onClick={this.b5}>5</button> 
+  <button id='four' class='botoes' onClick={this.b4}>4</button> <br/>
+  <button id='three'   class='botoes' onClick={this.b3}>3</button>
+  <button id='two' class='botoes' onClick={this.b2}>2</button>
+  <button id='one' class='botoes' onClick={this.b1}>1</button> <br/>
+  <button id='zero' class='botoes' onClick={this.b0}>0</button>
+  <button id='decimal' class='botoes' onClick={this.bponto}>.</button>
+  </>
+    )
+  }
+  }
+  class BotoesSim extends React.Component { 
+  constructor(props) {
+    super(props);
+  }
+  ac(){
+    valores = [0]
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  div(){
+    if(valores[0] === 0){
+        valores = []
+    }
+    valores.push('/')
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  mut(){
+    if(valores[0] === 0){
+        valores = []
+    }
+    valores.push('*')
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  sub(){
+    if(valores[0] === 0){
+        valores = []
+    }
+    valores.push('-')
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  som(){
+    if(valores[0] === 0){
+        valores = []
+    }
+    valores.push('+')
+    ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+  }
+  igu(){
+    var valores2 = [...valores]
+      for(let c = 0; c < valores2.length; c++){
+        var item = valores2[c]
+        if ((item == '*' || item == '+' || item == '/') && (valores2[c - 1] == '-' || valores2[c - 1] == '+' || valores2[c - 1] == '/' || valores2[c - 1] == '*')){
+          for(let i = c - 1; i >= 0; i--){
+            if(typeof valores2[i] == 'number' || valores2[i] == '.'){
+              i = -1
+            } else {
+              valores2.splice(i, 1)
+              c--
+            }
+          }
+        }
+      }
+      let conta = valores2.join('')
+      let res = Number(eval(conta).toFixed(4))
+      
+    ReactDOM.render(<Resultado resul={res}/>, document.getElementById('display'))
+    valores = [res]
+    segundo_valor = res
+  }
+  render(){ 
+      
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "Backspace"){
+      document.getElementById("clear").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "/"){
+      document.getElementById("divide").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "*"){
+      document.getElementById("multiply").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "-"){
+      document.getElementById("subtract").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "+"){
+      document.getElementById("add").click();
+    }
+})
+    document.addEventListener('keydown', function(e) {
+    if(e.key == "="){
+      document.getElementById("equals").click();
+    }
+})
+    return(
+        <>
+         <button id='clear' class='botoes' onClick={this.ac}>AC</button> <br />
+         <button id='divide' class='botoes' onClick={this.div}>/</button> <br />
+         <button id='multiply' class='botoes' onClick={this.mut}>*</button> <br />
+         <button id='subtract' class='botoes' onClick={this.sub}>-</button> <br />
+         <button id='add' class='botoes' onClick={this.som}>+</button> <br />
+         <button id='equals' class='botoes' onClick={this.igu}>=</button> 
+        </>
+    )
+  }
+  }
+  class Resultado extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    render(){
+        return(
+            <>
+            {this.props.resul}
+            </>
+        )
+    }
+  }
+  ReactDOM.render(<BotoesNum />, document.getElementById('botoes-num'))
+  ReactDOM.render(<BotoesSim />, document.getElementById('botoes-sim'))
+  ReactDOM.render(<Resultado resul={valores}/>, document.getElementById('display'))
+</script>
+</html>
