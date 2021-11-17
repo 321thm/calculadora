@@ -1,2 +1,2 @@
 # calculadora
-calculadora simples feita em HTML, CSS e JavaScript
+calculadora simples feita em HTML, CSS e JavaScript e React
